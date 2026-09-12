@@ -59,6 +59,21 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
   - `scripts/generate-qrcode.mjs`：生成スクリプト。実行後、生成したQRコードを実際に読み取ってURLと一致することを自動検証している
 - PR #3 をSquashマージでmainに統合。作業ブランチ `feature/qrcode` は削除済み
 
+**次にやること（このセクション時点）**
+- `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布
+- 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ、の流れをもう一度リハーサルしておくと安心）
+- 体育祭終了後、リポジトリを削除するかどうかは別途相談
+
+## 2026-09-12（続き・利用者フィードバックの反映）
+
+**やったこと**
+- 配置図が指でピンチ拡大できなかった問題を修正（viewportのmaximum-scale制限を撤廃）
+- 画像の全画面表示に閉じるボタン（✕）を追加。画像自体のタップでは閉じないようにして、ピンチ操作の邪魔をしないようにした
+- 「町ごとの担当フィルタ」は、ほぼ全種目が全町に関係してしまい実用性がなかったため、**担当者（個人）を選んで絞り込む方式**に変更（`site/data/roster.json`を使ってプルダウンを生成）
+- 競技要項PDF由来の「用具」セクションは不要とのことで削除（`site/data/equipment.json`も削除）
+- PR #5 をSquashマージでmainに統合。作業ブランチ `fix/staff-filter-and-zoom` は削除済み
+- 自動デプロイ成功を確認済み
+
 **次にやること**
 - `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布
 - 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ、の流れをもう一度リハーサルしておくと安心）
