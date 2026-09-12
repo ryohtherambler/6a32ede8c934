@@ -34,3 +34,20 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
 - 問題なければ「保存して」の手順（Commit確認→Push→PR作成→マージ方式の相談→マージ）に進む
 - QRコード化は、公開URLが確定してから対応
 
+## 2026-09-12（続き）
+
+**やったこと**
+- リポジトリ名を `taiikusai-shinpanyoukou-mobile` → `6a32ede8c934`（ランダム文字列）に変更。URLを推測困難にするため（PROJECT.md記載の方針）
+- `site/robots.txt` と `<meta name="robots" content="noindex, nofollow">` を追加し、検索エンジンに拾われにくくした
+- `.github/workflows/deploy-pages.yml` を追加し、GitHub Actionsで `site` フォルダをGitHub Pagesへ自動デプロイする設定にした
+- GitHub Pages を有効化（ソース: GitHub Actions）
+- PR #1 を作成し、Squashマージでmainに統合。作業ブランチ `feature/excel-data-analysis` は削除済み
+- mainへのマージにより自動デプロイが実行され、成功を確認
+- 公開URL：**https://ryohtherambler.github.io/6a32ede8c934/**
+- Playwright（iPhoneのUser-Agent）で公開URLに実際にアクセスし、一覧・詳細画面が正しく表示されることを確認
+
+**次にやること**
+- QRコード化（上記の公開URLを紙の審判要項に印刷する形で使う）
+- 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ、の流れをもう一度リハーサルしておくと安心）
+- 体育祭終了後、リポジトリを削除するかどうかは別途相談
+
