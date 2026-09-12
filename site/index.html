@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>審判要項｜第70回 那珂南校区体育祭</title>
+<meta name="theme-color" content="#1d4a3a" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <h1>第70回 那珂南校区体育祭<br><span>審判要項</span></h1>
+  <p class="app-header__date">2026年10月4日（日）　※雨天時は10月11日に順延</p>
+</header>
+
+<main id="view-timeline" class="view">
+  <div class="filter-bar" id="filter-bar">
+    <button type="button" class="filter-chip is-active" data-town="すべて">すべて</button>
+    <button type="button" class="filter-chip" data-town="新和">新和</button>
+    <button type="button" class="filter-chip" data-town="元町">元町</button>
+    <button type="button" class="filter-chip" data-town="春町">春町</button>
+    <button type="button" class="filter-chip" data-town="寿町">寿町</button>
+  </div>
+  <ol class="timeline" id="timeline-list"></ol>
+</main>
+
+<section id="view-detail" class="view is-hidden">
+  <button type="button" class="back-button" id="back-button">← 一覧へ戻る</button>
+  <div id="detail-content"></div>
+</section>
+
+<div id="image-overlay" class="image-overlay is-hidden">
+  <img id="image-overlay-img" alt="配置図拡大表示" />
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
