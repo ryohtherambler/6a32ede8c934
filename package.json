@@ -11,16 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryohtherambler/taiikusai-shinpanyoukou-mobile.git"
+    "url": "git+https://github.com/ryohtherambler/6a32ede8c934.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/ryohtherambler/taiikusai-shinpanyoukou-mobile/issues"
+    "url": "https://github.com/ryohtherambler/6a32ede8c934/issues"
   },
-  "homepage": "https://github.com/ryohtherambler/taiikusai-shinpanyoukou-mobile#readme",
+  "homepage": "https://github.com/ryohtherambler/6a32ede8c934#readme",
   "devDependencies": {
     "exceljs": "^4.4.0",
     "playwright": "^1.63.0"
