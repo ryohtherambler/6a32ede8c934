@@ -1,0 +1,28 @@
+{
+  "name": "taiikusai_shinpanyoukou_mobile",
+  "version": "1.0.0",
+  "description": "第70回・那珂南校区体育祭（2026年10月4日開催）の審判要項を、当日スタッフがスマホでさっと確認できるように配布するための静的サイトです。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryohtherambler/6a32ede8c934.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ryohtherambler/6a32ede8c934/issues"
+  },
+  "homepage": "https://github.com/ryohtherambler/6a32ede8c934#readme",
+  "devDependencies": {
+    "exceljs": "^4.4.0",
+    "playwright": "^1.63.0"
+  }
+}

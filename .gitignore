@@ -39,5 +39,9 @@ env/
 Thumbs.db
 Desktop.ini
 
+# Node.js（Excel→JSON変換・動作確認用ツール）の依存パッケージ
+# ※package.json・package-lock.jsonから誰でも再インストールできるため保存不要
+node_modules/
+
 # ※ release フォルダの完成品（exe等）は保存対象です（除外しません）。
 #   1ファイル100MBを超える場合の扱いは github-rules.md を参照。
