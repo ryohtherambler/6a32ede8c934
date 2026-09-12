@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>審判要項｜第70回 那珂南校区体育祭</title>
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#1d4a3a" />
@@ -19,12 +19,9 @@
 </header>
 
 <main id="view-timeline" class="view">
-  <div class="filter-bar" id="filter-bar">
-    <button type="button" class="filter-chip is-active" data-town="すべて">すべて</button>
-    <button type="button" class="filter-chip" data-town="新和">新和</button>
-    <button type="button" class="filter-chip" data-town="元町">元町</button>
-    <button type="button" class="filter-chip" data-town="春町">春町</button>
-    <button type="button" class="filter-chip" data-town="寿町">寿町</button>
+  <div class="filter-bar">
+    <label class="filter-label" for="staff-select">担当者で絞り込み</label>
+    <select id="staff-select" class="staff-select"></select>
   </div>
   <ol class="timeline" id="timeline-list"></ol>
 </main>
@@ -35,6 +32,7 @@
 </section>
 
 <div id="image-overlay" class="image-overlay is-hidden">
+  <button type="button" id="image-overlay-close" class="image-overlay__close" aria-label="閉じる">✕</button>
   <img id="image-overlay-img" alt="配置図拡大表示" />
 </div>
 

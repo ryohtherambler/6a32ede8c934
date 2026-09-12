@@ -57,28 +57,25 @@ h1, h2, h3 {
 }
 
 .filter-bar {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 12px 16px;
-  -webkit-overflow-scrolling: touch;
+  padding: 14px 16px 6px;
 }
 
-.filter-chip {
-  flex: none;
-  padding: 8px 16px;
+.filter-label {
+  display: block;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.staff-select {
+  width: 100%;
+  padding: 12px 14px;
   border-radius: 999px;
   border: 1px solid var(--color-accent);
   background: #fff;
   color: var(--color-accent);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  white-space: nowrap;
-}
-
-.filter-chip.is-active {
-  background: var(--color-accent);
-  color: #fff;
 }
 
 .timeline {
@@ -230,19 +227,6 @@ h1, h2, h3 {
   font-size: 16px;
 }
 
-.equipment-list {
-  margin: 0;
-  padding-left: 1.2em;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.equipment-list li {
-  font-size: 15px;
-  list-style: "・";
-}
-
 .course-table {
   width: 100%;
   border-collapse: collapse;
@@ -316,6 +300,21 @@ h1, h2, h3 {
 
 .image-overlay.is-hidden {
   display: none;
+}
+
+.image-overlay__close {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  z-index: 101;
 }
 
 .image-overlay img {
