@@ -1,6 +1,6 @@
 // オフラインでも開けるようにするためのキャッシュ設定
 // ファイルを追加・変更したら CACHE_NAME の数字を1つ増やすこと（更新が反映されるようになる）
-const CACHE_NAME = "shinpan-yoko-cache-v1";
+const CACHE_NAME = "shinpan-yoko-cache-v2";
 
 const PRECACHE_URLS = [
   "./",
@@ -11,7 +11,6 @@ const PRECACHE_URLS = [
   "data/events.json",
   "data/assignments.json",
   "data/roster.json",
-  "data/equipment.json",
   "icons/icon-192.png",
   "icons/icon-512.png",
   ...Array.from({ length: 13 }, (_, i) => `images/layout/${String(i + 1).padStart(2, "0")}.png`),

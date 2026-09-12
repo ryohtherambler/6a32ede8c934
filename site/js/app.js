@@ -4,8 +4,8 @@
   const state = {
     events: [],
     assignments: [],
-    equipment: {},
-    activeTown: "すべて",
+    roster: null,
+    activeStaff: "すべて",
   };
 
   const el = {
@@ -13,21 +13,22 @@
     detailView: document.getElementById("view-detail"),
     timelineList: document.getElementById("timeline-list"),
     detailContent: document.getElementById("detail-content"),
-    filterBar: document.getElementById("filter-bar"),
+    staffSelect: document.getElementById("staff-select"),
     backButton: document.getElementById("back-button"),
     imageOverlay: document.getElementById("image-overlay"),
     imageOverlayImg: document.getElementById("image-overlay-img"),
+    imageOverlayClose: document.getElementById("image-overlay-close"),
   };
 
   async function loadData() {
-    const [events, assignments, equipment] = await Promise.all([
+    const [events, assignments, roster] = await Promise.all([
       fetch("data/events.json").then((r) => r.json()),
       fetch("data/assignments.json").then((r) => r.json()),
-      fetch("data/equipment.json").then((r) => r.json()),
+      fetch("data/roster.json").then((r) => r.json()),
     ]);
     state.events = events;
     state.assignments = assignments;
-    state.equipment = equipment;
+    state.roster = roster;
   }
 
   function timeToMinutes(hhmm) {
@@ -57,9 +58,9 @@
 
   function renderTimeline() {
     const filtered = state.events.filter((event) => {
-      if (state.activeTown === "すべて") return true;
+      if (state.activeStaff === "すべて") return true;
       const a = assignmentFor(event.id);
-      return a && a.towns.includes(state.activeTown);
+      return a && a.staff.includes(state.activeStaff);
     });
 
     el.timelineList.innerHTML = "";
@@ -67,7 +68,7 @@
     if (filtered.length === 0) {
       const li = document.createElement("li");
       li.className = "empty-state";
-      li.textContent = "この町のスタッフが割り当てられている種目はありません。";
+      li.textContent = "この方が担当する種目はありません。";
       el.timelineList.appendChild(li);
       return;
     }
@@ -143,18 +144,6 @@
     `;
   }
 
-  function renderEquipment(eventId) {
-    const items = state.equipment[String(eventId)];
-    if (!items || items.length === 0) return "";
-    const lis = items.map((item) => `<li>${item}</li>`).join("");
-    return `
-      <div class="section-block">
-        <h2 class="section-block__title">用具</h2>
-        <ul class="equipment-list">${lis}</ul>
-      </div>
-    `;
-  }
-
   function renderAssignedStaff(eventId) {
     const a = assignmentFor(eventId);
     if (!a || a.staff.length === 0) return "";
@@ -195,14 +184,13 @@
         <button type="button" class="layout-image-button" id="layout-image-button">
           <img src="${event.layoutImage}" alt="${event.name} 配置図" />
         </button>
-        <p class="layout-image-hint">画像をタップで拡大</p>
+        <p class="layout-image-hint">画像をタップで全画面表示（指でつまんでさらに拡大できます）</p>
       </div>
 
       ${renderStepSection("② 競技方法", event.method)}
       ${renderStepSection("③ 審判の役割", event.referee)}
       ${renderStepSection("④ 得点", event.scoring)}
       ${renderCourseTable(event.courseGroups)}
-      ${renderEquipment(event.id)}
       ${renderAssignedStaff(event.id)}
     `;
 
@@ -231,20 +219,39 @@
   }
 
   function setupFilterBar() {
-    el.filterBar.addEventListener("click", (e) => {
-      const chip = e.target.closest(".filter-chip");
-      if (!chip) return;
-      state.activeTown = chip.dataset.town;
-      for (const c of el.filterBar.querySelectorAll(".filter-chip")) {
-        c.classList.toggle("is-active", c === chip);
-      }
+    const options = ['<option value="すべて">すべて</option>'];
+
+    const group = (label, names) => {
+      if (names.length === 0) return "";
+      const opts = names.map((name) => `<option value="${name}">${name}</option>`).join("");
+      return `<optgroup label="${label}">${opts}</optgroup>`;
+    };
+
+    options.push(
+      group(
+        "体育振興会執行部",
+        state.roster.executives.map((e) => e.name)
+      )
+    );
+    for (const town of state.roster.towns) {
+      options.push(group(town.name, [town.leader, ...town.staff]));
+    }
+
+    el.staffSelect.innerHTML = options.join("");
+    el.staffSelect.addEventListener("change", () => {
+      state.activeStaff = el.staffSelect.value;
       renderTimeline();
     });
   }
 
   function setupNav() {
     el.backButton.addEventListener("click", showTimeline);
-    el.imageOverlay.addEventListener("click", closeImageOverlay);
+    el.imageOverlayClose.addEventListener("click", closeImageOverlay);
+    // 背景（画像の外側）をタップしたときだけ閉じる。画像自体のタップでは
+    // 閉じないようにして、ピンチ操作や二本指ズームの邪魔をしない。
+    el.imageOverlay.addEventListener("click", (e) => {
+      if (e.target === el.imageOverlay) closeImageOverlay();
+    });
   }
 
   function registerServiceWorker() {
@@ -256,10 +263,10 @@
   }
 
   async function main() {
-    setupFilterBar();
     setupNav();
     registerServiceWorker();
     await loadData();
+    setupFilterBar();
     renderTimeline();
     // 現在時刻の判定は1分ごとに更新する
     setInterval(renderTimeline, 60 * 1000);
