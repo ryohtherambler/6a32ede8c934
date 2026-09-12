@@ -46,8 +46,21 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
 - 公開URL：**https://ryohtherambler.github.io/6a32ede8c934/**
 - Playwright（iPhoneのUser-Agent）で公開URLに実際にアクセスし、一覧・詳細画面が正しく表示されることを確認
 
-**次にやること**
+**次にやること（このセクション時点）**
 - QRコード化（上記の公開URLを紙の審判要項に印刷する形で使う）
+- 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ、の流れをもう一度リハーサルしておくと安心）
+- 体育祭終了後、リポジトリを削除するかどうかは別途相談
+
+## 2026-09-12（続き・QRコード追加）
+
+**やったこと**
+- 公開URL（https://ryohtherambler.github.io/6a32ede8c934/）のQRコードを、このPC内だけで生成（外部のQRコード作成サイトは不使用）
+  - `qrcode/shinpan-youkou-qrcode.png`：印刷用のQRコード画像（誤り訂正レベル最高(H)、汚れ・折れに強い設定）
+  - `scripts/generate-qrcode.mjs`：生成スクリプト。実行後、生成したQRコードを実際に読み取ってURLと一致することを自動検証している
+- PR #3 をSquashマージでmainに統合。作業ブランチ `feature/qrcode` は削除済み
+
+**次にやること**
+- `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布
 - 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ、の流れをもう一度リハーサルしておくと安心）
 - 体育祭終了後、リポジトリを削除するかどうかは別途相談
 
