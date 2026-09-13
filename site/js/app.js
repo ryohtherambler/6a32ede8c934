@@ -18,6 +18,7 @@
     imageOverlay: document.getElementById("image-overlay"),
     imageOverlayImg: document.getElementById("image-overlay-img"),
     imageOverlayClose: document.getElementById("image-overlay-close"),
+    coverButton: document.getElementById("cover-button"),
   };
 
   async function loadData() {
@@ -246,6 +247,9 @@
 
   function setupNav() {
     el.backButton.addEventListener("click", showTimeline);
+    el.coverButton.addEventListener("click", () =>
+      openImageOverlay("images/cover.png", "審判要項の表紙")
+    );
     el.imageOverlayClose.addEventListener("click", closeImageOverlay);
     // 背景（画像の外側）をタップしたときだけ閉じる。画像自体のタップでは
     // 閉じないようにして、ピンチ操作や二本指ズームの邪魔をしない。
