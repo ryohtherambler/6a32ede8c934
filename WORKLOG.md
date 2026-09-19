@@ -112,10 +112,15 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
 - データ更新に合わせて `site/sw.js` のキャッシュバージョンをv2→v3に更新
 - Playwrightでスマホ幅（390px）の一覧・詳細・配置図拡大・担当者フィルタ・ヘッダー表示を確認し、コンソールエラーがないことを確認済み
 - PR #8 を通常マージでmainに統合。作業ブランチ `feature/update-260919-data-and-design` は削除済み
-- 自動デプロイの成功は次回セッションで要確認
+- 自動デプロイの成功を確認済み（GitHub Actions「Deploy site to GitHub Pages」が成功）
+
+**作業中のミスと対応**
+- WORKLOGへの追記作業を誤ってmainブランチ上で直接行ってしまった（ルール違反）。気づいた時点で作業用ブランチへ退避したが、退避時の操作でその追記内容を一度消してしまい、同じ内容を書き直して復元した。mainブランチ自体への実害はなし（追記はCommit前だったため）
+- 上記の記録用に、WORKLOGの追記をPR #9として通常マージでmainに統合。作業ブランチ `chore/update-worklog-260919` は削除済み
 
 **次にやること**
-- 公開URL（https://ryohtherambler.github.io/6a32ede8c934/）で自動デプロイが正常に反映されているか確認
 - `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布（配置図・データが更新されたため、QRコード自体の再生成は不要。URLは変わっていない）
 - 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ）
 - 体育祭終了後、リポジトリを削除するかどうかは別途相談
+
+（本日のセッションはここで終了。次回はこのWORKLOGとGitの状態から再開できます）
