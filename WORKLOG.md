@@ -118,6 +118,20 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
 - WORKLOGへの追記作業を誤ってmainブランチ上で直接行ってしまった（ルール違反）。気づいた時点で作業用ブランチへ退避したが、退避時の操作でその追記内容を一度消してしまい、同じ内容を書き直して復元した。mainブランチ自体への実害はなし（追記はCommit前だったため）
 - 上記の記録用に、WORKLOGの追記をPR #9として通常マージでmainに統合。作業ブランチ `chore/update-worklog-260919` は削除済み
 
+**次にやること（このセクション時点）**
+- `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布（配置図・データが更新されたため、QRコード自体の再生成は不要。URLは変わっていない）
+- 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ）
+- 体育祭終了後、リポジトリを削除するかどうかは別途相談
+
+## 2026-09-19（続き・記録用紙の修正）
+
+**やったこと**
+- `docs/260919`のExcel（審判要項作成中_260919_7）が更新され、「小学生対抗リレー」「各町オールスターリレー」の記録用紙（スコアカード）有無の誤りが修正されたとの連絡を受けた
+- `node scripts/build-events.mjs` で再生成し、該当2種目のスコアカードが「無」→「有」に修正されたことを確認（他の項目に差分がないことも確認済み）
+- Playwrightで両種目の詳細画面を開き、スコアカード表示が「有」になっていることを確認済み
+- PR #11 を通常マージでmainに統合。作業ブランチ `fix/scorecard-relay-events` は削除済み
+- 自動デプロイの成功を確認済み
+
 **次にやること**
 - `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布（配置図・データが更新されたため、QRコード自体の再生成は不要。URLは変わっていない）
 - 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ）
