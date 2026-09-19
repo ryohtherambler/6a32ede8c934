@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const EXCEL_PATH = path.join(ROOT, "docs", "審判要項作成中_260912_スマホアプリ資料用.xlsm");
+const EXCEL_PATH = path.join(ROOT, "docs", "260919", "審判要項作成中_260919_7_スマホアプリ資料用.xlsm");
 const OUT_PATH = path.join(ROOT, "site", "data", "events.json");
 
 // シート名の順番 = 種目番号の順番。配置図PNG（01.png〜13.png）もこの順番に対応させる。
