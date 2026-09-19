@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const EXCEL_PATH = path.join(ROOT, "docs", "審判要項作成中_260912_スマホアプリ資料用.xlsm");
+const EXCEL_PATH = path.join(ROOT, "docs", "260919", "審判要項作成中_260919_7_スマホアプリ資料用.xlsm");
 const OUT_PATH = path.join(ROOT, "site", "data", "assignments.json");
 
 // 配置管理表シートの列位置（各スタッフの○印がある列。ラベルは結合セルの左側の列）
@@ -53,10 +53,12 @@ async function main() {
   const sheet = wb.getWorksheet("管理票");
   if (!sheet) throw new Error("シートが見つかりません: 管理票");
 
-  // 種目の行は6行目〜18行目（13種目、events.jsonと同じ順番）
+  // 種目の行は7行目〜19行目（13種目、events.jsonと同じ順番）
+  // ※260919版では見出しが「役職カテゴリ行(5)＋氏名行(6)」の2行になり、
+  //   種目データの開始行が260912版の6行目→7行目に1行ずれた
   const assignments = [];
   for (let i = 0; i < 13; i++) {
-    const row = 6 + i;
+    const row = 7 + i;
     const eventId = i + 1;
     const staff = [];
     for (const { col, key } of STAFF_COLUMNS) {

@@ -14,11 +14,22 @@
 <body>
 
 <header class="app-header">
-  <button type="button" class="app-header__cover" id="cover-button" aria-label="審判要項の表紙を拡大表示">
-    <img src="images/cover.png" alt="審判要項 表紙" />
-  </button>
-  <h1>第70回 那珂南校区体育祭<br><span>審判要項</span></h1>
-  <p class="app-header__date">2026年10月4日（日）　※雨天時は10月11日に順延</p>
+  <div class="app-header__frame">
+    <p class="app-header__kicker">第70回　那珂南校区体育祭</p>
+    <h1 class="app-header__title">審判要項</h1>
+    <p class="app-header__date">2026年10月4日（日）</p>
+    <svg class="app-header__runner" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="44" cy="10" r="5" fill="currentColor" />
+      <path
+        d="M40 17 L28 32 M28 32 L38 38 L34 50 M28 32 L18 36 L10 28 M40 17 L30 14 L22 20 M40 17 L48 24 L44 34"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
 </header>
 
 <main id="view-timeline" class="view">
