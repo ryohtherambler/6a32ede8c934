@@ -645,7 +645,7 @@
     "meetingPlace": "入場門",
     "entryMethod": "別々",
     "bibs": "全員",
-    "scorecard": "無",
+    "scorecard": "有",
     "flag": "有",
     "otherNote": "タイム計測",
     "method": [
@@ -736,7 +736,7 @@
     "meetingPlace": "入場門",
     "entryMethod": "一斉",
     "bibs": "全員",
-    "scorecard": "無",
+    "scorecard": "有",
     "flag": "有",
     "otherNote": "タイム計測",
     "method": [
