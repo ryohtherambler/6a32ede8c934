@@ -1,6 +1,6 @@
 // オフラインでも開けるようにするためのキャッシュ設定
 // ファイルを追加・変更したら CACHE_NAME の数字を1つ増やすこと（更新が反映されるようになる）
-const CACHE_NAME = "shinpan-yoko-cache-v3";
+const CACHE_NAME = "shinpan-yoko-cache-v4";
 
 const PRECACHE_URLS = [
   "./",
