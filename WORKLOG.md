@@ -163,4 +163,19 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
 - 当日ギリギリまでのExcel更新運用の最終確認（Excel修正→`node scripts/build-events.mjs`・`node scripts/build-assignments.mjs`実行→Commit・Push→自動デプロイ）
 - 体育祭終了後、リポジトリを削除するかどうかは別途相談
 
+## 2026-09-26（続き・春町A氏名の修正）
+
+**やったこと**
+- 春町Aの担当者名が「高口」ではなく正しくは「高石」だったとの連絡を受けた
+- `docs/260926`に確認用の「管理用名前修正.pdf」が追加されていることを確認。ただしExcel本体（審判要項作成中_260926_8.xlsm）の管理票シートは氏名が「高口」のままで未修正だった（docsフォルダは書き換え禁止のため、Excel本体はこちらでは直せない）
+- `scripts/build-assignments.mjs` に暫定的な氏名補正（NAME_CORRECTIONS：高口→高石）を追加し、`site/data/assignments.json`・`site/data/roster.json` を再生成・修正
+  - Excel本体が修正され次第、この補正コードは削除できる
+- 作業用ブランチ `fix/haruicho-a-name-takaishi` でCommit済み（まだPush・PR前）
+
+**次にやること**
+- 「保存して」の手順（Push→PR作成→マージ方式の相談→マージ）に進む
+- 余裕があれば、Excel本体（審判要項作成中_260926_8.xlsm）側の氏名も「高石」に直してもらえると、build-assignments.mjsの暫定補正コードを削除できる
+- `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布（URLは変わっていないため再生成不要）
+- 体育祭終了後、リポジトリを削除するかどうかは別途相談
+
 （本日のセッションはここで終了。次回はこのWORKLOGとGitの状態から再開できます）
