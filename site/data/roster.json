@@ -8,22 +8,37 @@
     {
       "name": "新和",
       "leader": "長尾",
-      "staff": ["新和A", "新和B", "新和C"]
+      "staff": [
+        { "name": "中野", "label": "新A" },
+        { "name": "浅見", "label": "新B" },
+        { "name": "ピレス", "label": "新C" }
+      ]
     },
     {
       "name": "元町",
-      "leader": "田郷",
-      "staff": ["元町A", "元町B", "元町C"]
+      "leader": "足立",
+      "staff": [
+        { "name": "小柳", "label": "元A" },
+        { "name": "蔵田", "label": "元B" }
+      ]
     },
     {
       "name": "春町",
       "leader": "小嶋",
-      "staff": ["春町A", "春町B", "春町C"]
+      "staff": [
+        { "name": "高口", "label": "春A" },
+        { "name": "平島", "label": "春B" },
+        { "name": "矢野", "label": "春C" }
+      ]
     },
     {
       "name": "寿町",
       "leader": "田中",
-      "staff": ["寿町A", "寿町B", "寿町C"]
+      "staff": [
+        { "name": "柴田", "label": "寿A" },
+        { "name": "平川", "label": "寿B" },
+        { "name": "高木", "label": "寿C" }
+      ]
     }
   ]
 }
