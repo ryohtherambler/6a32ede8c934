@@ -41,13 +41,20 @@ const STAFF_COLUMNS = [
   { col: 46, label: "寿C", town: "寿町" },
 ];
 
+// Excel本体（管理票シート）の氏名がまだ古いままで、正誤表（PDF等）だけが
+// 別途届いている場合の暫定的な氏名補正。Excel本体が修正されたら該当行を削除すること
+// 260926: 春A担当は「高口」ではなく「高石」が正しい（docs/260926/管理用名前修正.pdf）
+const NAME_CORRECTIONS = {
+  高口: "高石",
+};
+
 // 氏名行のセル値を取り出す（結合セルはマスターセルの値がそのまま返る）
 function nameAt(sheet, col) {
   const v = sheet.getRow(6).getCell(col).value;
   if (v === null || v === undefined) return null;
   const s = String(v).trim();
   if (s === "" || s === "-" || s === "－") return null; // 空席（未配置）
-  return s;
+  return NAME_CORRECTIONS[s] ?? s;
 }
 
 async function main() {
