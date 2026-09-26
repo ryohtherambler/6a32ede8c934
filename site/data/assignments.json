@@ -2,12 +2,30 @@
   {
     "eventId": 1,
     "staff": [
-      "黒田",
-      "羽根",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      }
     ],
     "towns": [
       "新和",
@@ -19,23 +37,74 @@
   {
     "eventId": 2,
     "staff": [
-      "黒田",
-      "羽根",
-      "吉田",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中",
-      "新和A",
-      "新和B",
-      "新和C",
-      "元町A",
-      "元町B",
-      "春町A",
-      "春町B",
-      "寿町A",
-      "寿町B",
-      "寿町C"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "中野",
+        "label": "新A"
+      },
+      {
+        "name": "浅見",
+        "label": "新B"
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "平島",
+        "label": "春B"
+      },
+      {
+        "name": "矢野",
+        "label": "春C"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      },
+      {
+        "name": "高木",
+        "label": "寿C"
+      }
     ],
     "towns": [
       "新和",
@@ -47,21 +116,66 @@
   {
     "eventId": 3,
     "staff": [
-      "黒田",
-      "羽根",
-      "吉田",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中",
-      "新和A",
-      "新和B",
-      "元町A",
-      "元町B",
-      "春町A",
-      "春町B",
-      "寿町A",
-      "寿町B"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "中野",
+        "label": "新A"
+      },
+      {
+        "name": "浅見",
+        "label": "新B"
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "矢野",
+        "label": "春C"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      }
     ],
     "towns": [
       "新和",
@@ -73,22 +187,62 @@
   {
     "eventId": 4,
     "staff": [
-      "黒田",
-      "羽根",
-      "吉田",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中",
-      "新和A",
-      "新和B",
-      "新和C",
-      "元町A",
-      "元町B",
-      "春町A",
-      "春町B",
-      "春町C",
-      "寿町B"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "中野",
+        "label": "新A"
+      },
+      {
+        "name": "浅見",
+        "label": "新B"
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "矢野",
+        "label": "春C"
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      }
     ],
     "towns": [
       "新和",
@@ -105,12 +259,30 @@
   {
     "eventId": 6,
     "staff": [
-      "黒田",
-      "羽根",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      }
     ],
     "towns": [
       "新和",
@@ -122,58 +294,149 @@
   {
     "eventId": 7,
     "staff": [
-      "黒田",
-      "吉田",
-      "田郷",
-      "小嶋",
-      "田中",
-      "新和B",
-      "新和C",
-      "元町A",
-      "元町B",
-      "元町C",
-      "春町A",
-      "春町B",
-      "春町C",
-      "寿町A",
-      "寿町B"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "浅見",
+        "label": "新B"
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "蔵田",
+        "label": "元B"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "平島",
+        "label": "春B"
+      },
+      {
+        "name": "矢野",
+        "label": "春C"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      },
+      {
+        "name": "高木",
+        "label": "寿C"
+      }
     ],
     "towns": [
-      "新和",
       "元町",
       "春町",
-      "寿町"
+      "寿町",
+      "新和"
     ]
   },
   {
     "eventId": 8,
     "staff": [
-      "黒田",
-      "新和A",
-      "新和B",
-      "元町B",
-      "元町C",
-      "春町C"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "平島",
+        "label": "春B"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      },
+      {
+        "name": "高木",
+        "label": "寿C"
+      }
     ],
     "towns": [
-      "新和",
-      "元町",
-      "春町"
+      "春町",
+      "寿町"
     ]
   },
   {
     "eventId": 9,
     "staff": [
-      "黒田",
-      "元町A",
-      "元町B",
-      "春町A",
-      "春町B",
-      "寿町A",
-      "寿町B",
-      "寿町C"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "平島",
+        "label": "春B"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      },
+      {
+        "name": "高木",
+        "label": "寿C"
+      }
     ],
     "towns": [
+      "新和",
       "元町",
       "春町",
       "寿町"
@@ -182,41 +445,113 @@
   {
     "eventId": 10,
     "staff": [
-      "黒田",
-      "羽根",
-      "吉田",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中",
-      "寿町B",
-      "寿町C"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "平川",
+        "label": "寿B"
+      },
+      {
+        "name": "高木",
+        "label": "寿C"
+      }
     ],
     "towns": [
-      "寿町",
       "新和",
       "元町",
-      "春町"
+      "春町",
+      "寿町"
     ]
   },
   {
     "eventId": 11,
     "staff": [
-      "黒田",
-      "羽根",
-      "吉田",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中",
-      "新和A",
-      "元町A",
-      "元町B",
-      "元町C",
-      "春町A",
-      "春町B",
-      "寿町A",
-      "寿町B"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "中野",
+        "label": "新A"
+      },
+      {
+        "name": "浅見",
+        "label": "新B"
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "蔵田",
+        "label": "元B"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "平島",
+        "label": "春B"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      }
     ],
     "towns": [
       "新和",
@@ -228,21 +563,66 @@
   {
     "eventId": 12,
     "staff": [
-      "黒田",
-      "羽根",
-      "吉田",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中",
-      "新和A",
-      "元町A",
-      "元町B",
-      "元町C",
-      "春町A",
-      "春町B",
-      "寿町A",
-      "寿町B"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "吉田",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      },
+      {
+        "name": "中野",
+        "label": "新A"
+      },
+      {
+        "name": "浅見",
+        "label": "新B"
+      },
+      {
+        "name": "ピレス",
+        "label": "新C"
+      },
+      {
+        "name": "小柳",
+        "label": "元A"
+      },
+      {
+        "name": "蔵田",
+        "label": "元B"
+      },
+      {
+        "name": "高口",
+        "label": "春A"
+      },
+      {
+        "name": "平島",
+        "label": "春B"
+      },
+      {
+        "name": "柴田",
+        "label": "寿A"
+      }
     ],
     "towns": [
       "新和",
@@ -254,12 +634,30 @@
   {
     "eventId": 13,
     "staff": [
-      "黒田",
-      "羽根",
-      "長尾",
-      "田郷",
-      "小嶋",
-      "田中"
+      {
+        "name": "黒田",
+        "label": null
+      },
+      {
+        "name": "羽根",
+        "label": null
+      },
+      {
+        "name": "長尾",
+        "label": null
+      },
+      {
+        "name": "足立",
+        "label": null
+      },
+      {
+        "name": "小嶋",
+        "label": null
+      },
+      {
+        "name": "田中",
+        "label": null
+      }
     ],
     "towns": [
       "新和",
