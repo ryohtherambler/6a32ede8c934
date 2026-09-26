@@ -9,42 +9,45 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const EXCEL_PATH = path.join(ROOT, "docs", "260919", "審判要項作成中_260919_7_スマホアプリ資料用.xlsm");
+const EXCEL_PATH = path.join(ROOT, "docs", "260926", "審判要項作成中_260926_8.xlsm");
 const OUT_PATH = path.join(ROOT, "site", "data", "assignments.json");
 
-// 配置管理表シートの列位置（各スタッフの○印がある列。ラベルは結合セルの左側の列）
 // 町名の略称→フル表記（漢字2文字ルール）
 const TOWN_FULL_NAME = { 新: "新和", 元: "元町", 春: "春町", 寿: "寿町" };
 
-// 4町の体育部長がどの町の代表か（担当町フィルタで、部長の出番もその町の出番として数える）
-const TOWN_LEADER_TOWN = { 長尾: "新和", 田郷: "元町", 小嶋: "春町", 田中: "寿町" };
-
+// 配置管理表シートの列位置（各役職・スタッフの○印がある列）
+// 氏名行(6行目)から実名を毎回読み取るため、担当者が変わってもこのスクリプトの修正は不要
+// label: お手伝いスタッフ（ABC表記）の配置図と同じ短縮ラベル。執行部・体育部長はnull
+// leaderTown: 体育部長の場合、担当町のフル表記
 const STAFF_COLUMNS = [
-  { col: 10, key: "黒田" },
-  { col: 12, key: "羽根" },
-  { col: 14, key: "吉田" },
-  { col: 16, key: "長尾" },
-  { col: 18, key: "田郷" },
-  { col: 20, key: "小嶋" },
-  { col: 22, key: "田中" },
-  { col: 24, key: "新A" },
-  { col: 26, key: "新B" },
-  { col: 28, key: "新C" },
-  { col: 30, key: "元A" },
-  { col: 32, key: "元B" },
-  { col: 34, key: "元C" },
-  { col: 36, key: "春A" },
-  { col: 38, key: "春B" },
-  { col: 40, key: "春C" },
-  { col: 42, key: "寿A" },
-  { col: 44, key: "寿B" },
-  { col: 46, key: "寿C" },
+  { col: 10, label: null, leaderTown: null },
+  { col: 12, label: null, leaderTown: null },
+  { col: 14, label: null, leaderTown: null },
+  { col: 16, label: null, leaderTown: "新和" },
+  { col: 18, label: null, leaderTown: "元町" },
+  { col: 20, label: null, leaderTown: "春町" },
+  { col: 22, label: null, leaderTown: "寿町" },
+  { col: 24, label: "新A", town: "新和" },
+  { col: 26, label: "新B", town: "新和" },
+  { col: 28, label: "新C", town: "新和" },
+  { col: 30, label: "元A", town: "元町" },
+  { col: 32, label: "元B", town: "元町" },
+  { col: 34, label: "元C", town: "元町" },
+  { col: 36, label: "春A", town: "春町" },
+  { col: 38, label: "春B", town: "春町" },
+  { col: 40, label: "春C", town: "春町" },
+  { col: 42, label: "寿A", town: "寿町" },
+  { col: 44, label: "寿B", town: "寿町" },
+  { col: 46, label: "寿C", town: "寿町" },
 ];
 
-function expandStaffName(abbrev) {
-  const m = abbrev.match(/^([新元春寿])([ABC])$/);
-  if (!m) return abbrev; // 黒田・羽根・吉田・長尾・田郷・小嶋・田中 はそのまま
-  return `${TOWN_FULL_NAME[m[1]]}${m[2]}`;
+// 氏名行のセル値を取り出す（結合セルはマスターセルの値がそのまま返る）
+function nameAt(sheet, col) {
+  const v = sheet.getRow(6).getCell(col).value;
+  if (v === null || v === undefined) return null;
+  const s = String(v).trim();
+  if (s === "" || s === "-" || s === "－") return null; // 空席（未配置）
+  return s;
 }
 
 async function main() {
@@ -54,24 +57,21 @@ async function main() {
   if (!sheet) throw new Error("シートが見つかりません: 管理票");
 
   // 種目の行は7行目〜19行目（13種目、events.jsonと同じ順番）
-  // ※260919版では見出しが「役職カテゴリ行(5)＋氏名行(6)」の2行になり、
-  //   種目データの開始行が260912版の6行目→7行目に1行ずれた
   const assignments = [];
   for (let i = 0; i < 13; i++) {
     const row = 7 + i;
     const eventId = i + 1;
     const staff = [];
-    for (const { col, key } of STAFF_COLUMNS) {
-      const v = sheet.getRow(row).getCell(col).value;
-      if (v === "○") staff.push(expandStaffName(key));
-    }
     const towns = new Set();
-    for (const abbrev of Object.keys(TOWN_FULL_NAME)) {
-      const full = TOWN_FULL_NAME[abbrev];
-      if (staff.some((s) => s.startsWith(full))) towns.add(full);
-    }
-    for (const [leader, town] of Object.entries(TOWN_LEADER_TOWN)) {
-      if (staff.includes(leader)) towns.add(town);
+    for (const col of STAFF_COLUMNS) {
+      const v = sheet.getRow(row).getCell(col.col).value;
+      // ○:フィールド ◎:タイム計測 ●:ゴールテープ　いずれも担当スタッフとして扱う
+      if (v !== "○" && v !== "◎" && v !== "●") continue;
+      const name = nameAt(sheet, col.col);
+      if (!name) continue; // 空席の欄は担当スタッフに含めない
+      staff.push({ name, label: col.label ?? null });
+      if (col.town) towns.add(col.town);
+      if (col.leaderTown) towns.add(col.leaderTown);
     }
     assignments.push({ eventId, staff, towns: [...towns] });
   }

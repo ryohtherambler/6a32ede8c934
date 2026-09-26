@@ -60,7 +60,7 @@
     const filtered = state.events.filter((event) => {
       if (state.activeStaff === "すべて") return true;
       const a = assignmentFor(event.id);
-      return a && a.staff.includes(state.activeStaff);
+      return a && a.staff.some((person) => person.name === state.activeStaff);
     });
 
     el.timelineList.innerHTML = "";
@@ -147,10 +147,41 @@
   function renderAssignedStaff(eventId) {
     const a = assignmentFor(eventId);
     if (!a || a.staff.length === 0) return "";
+
+    const executiveNames = new Set(state.roster.executives.map((e) => e.name));
+
+    const executives = [];
+    const leaders = [];
+    const helpers = [];
+
+    for (const person of a.staff) {
+      if (person.label) {
+        // お手伝いスタッフ：名字（配置図と同じ短縮町名＋ABC表記）
+        helpers.push(`${person.name}（${person.label}）`);
+      } else if (executiveNames.has(person.name)) {
+        executives.push(person.name);
+      } else {
+        // 体育部長（代理を含む）。leaderNamesに含まれない場合もここに寄せる
+        leaders.push(person.name);
+      }
+    }
+
+    const group = (label, names) => {
+      if (names.length === 0) return "";
+      return `
+        <div class="staff-group">
+          <span class="staff-group__label">${label}</span>
+          <p class="staff-group__names">${names.join("、")}</p>
+        </div>
+      `;
+    };
+
     return `
       <div class="section-block">
         <h2 class="section-block__title">担当スタッフ</h2>
-        <p>${a.staff.join("、")}</p>
+        ${group("執行部", executives)}
+        ${group("体育部長", leaders)}
+        ${group("お手伝いスタッフ", helpers)}
       </div>
     `;
   }
@@ -234,7 +265,7 @@
       )
     );
     for (const town of state.roster.towns) {
-      options.push(group(town.name, [town.leader, ...town.staff]));
+      options.push(group(town.name, [town.leader, ...town.staff.map((s) => s.name)]));
     }
 
     el.staffSelect.innerHTML = options.join("");
