@@ -170,11 +170,11 @@ Claudeへ：会話の履歴はDesktopアプリ・VS Code・PC間で引き継が�
 - `docs/260926`に確認用の「管理用名前修正.pdf」が追加されていることを確認。ただしExcel本体（審判要項作成中_260926_8.xlsm）の管理票シートは氏名が「高口」のままで未修正だった（docsフォルダは書き換え禁止のため、Excel本体はこちらでは直せない）
 - `scripts/build-assignments.mjs` に暫定的な氏名補正（NAME_CORRECTIONS：高口→高石）を追加し、`site/data/assignments.json`・`site/data/roster.json` を再生成・修正
   - Excel本体が修正され次第、この補正コードは削除できる
+- Excel本体（審判要項作成中_260926_8.xlsm）側の氏名も「高石」に修正されたとの連絡を受けたため、暫定補正コード（NAME_CORRECTIONS）を削除し、Excelから直接再生成。補正なしでも同じ結果になることを確認済み
 - 作業用ブランチ `fix/haruicho-a-name-takaishi` でCommit済み（まだPush・PR前）
 
 **次にやること**
 - 「保存して」の手順（Push→PR作成→マージ方式の相談→マージ）に進む
-- 余裕があれば、Excel本体（審判要項作成中_260926_8.xlsm）側の氏名も「高石」に直してもらえると、build-assignments.mjsの暫定補正コードを削除できる
 - `qrcode/shinpan-youkou-qrcode.png` を紙の審判要項（PDF/印刷物）に貼り付けて配布（URLは変わっていないため再生成不要）
 - 体育祭終了後、リポジトリを削除するかどうかは別途相談
 
